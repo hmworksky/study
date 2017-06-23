@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Test Tools</title>
+
+
+<script language="javascript">
+function $(obj){return document.getElementById(obj);}
+function show(objid) {$(objid).style.display='inline';}
+function hidden(objid) {$(objid).style.display='none';}
+function doit(){
+var sel_val=$('thread_label').value;
+if (sel_val=='') {hidden('post_thread_num');hidden('post_thread_num');}
+if (sel_val==0) {hidden('post_thread_num');hidden('post_thread_num');}
+if (sel_val==1) {show('post_thread_num');}
+if (sel_val==2) {show('post_thread_num');}
+}
+</script> 
+
+</head>
+<body>
+<style>
+.divcss1{text-align:center}
+</style>
+<h1 class = "divcss1">Welcome use test tools</h1>
+<b>JSON转换</b>
+<form method = "post" action = "/tools/">
+<textarea name = "json_before" cols = "30" rows = "2"></textarea><br><br>
+<button type = "submit" value = "jsonto">JSON转换</button><br>
+</form><br><br>
+
+<b>POST提交</b><br>
+<form method = "post" action = "/tools/post/">
+<label>域名：</label>
+<input type = "text" name = "post_url"  value="请输入域名" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999"><br><br>
+<label>POST数据：</label>
+<textarea name = "post_data" cols = "30" rows = "1" ></textarea><br><br>
+
+<select name="thread_label" id = "thread_label" onchange = "javascript:doit();"> 
+	<option value="0">不使用线程和进程</option> 
+	<option value="1">使用线程</option> 
+	<option value="2">使用进程</option>
+</select> 
+<input type = "text" name = "post_thread_num"  id = "post_thread_num" value="请输入线程或进程数量" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999"  ><br><br>
+<button type = "submit" value = "postto">提交</button>
+</form>
+
+
+<!--  
+<b>URLEncode</b><br>
+<form method = "post" action = "/url_encode/">
+<input type = "text" name = "urlencode_before">
+<button type = "submit" value = "urlencode">URLEncode</button>
+<input type = "text" name = "urlencode_finished"><br><br>
+</form>
+
+<b>URLDecode</b><br>
+<form method = "post" action = "/url_encode/">
+<input type = "text" name = "urldecode_before">
+<button type = "submit" value = "urldecode">URLDecode</button>
+<input type = "text" name = "urldecode_finished"><br><br>
+
+
+<b>GET请求</b><br>
+<form method = "post" action = "/http_get/">
+<input type = "text" name = "get_url">
+<button type = "submit" value = "urldecode">GET请求</button>
+
+
+<button type = "submit" value = "ok">登录</button>
+{% csrf_token %}
+
+</form>
+-->
+</body>
+
+</html>

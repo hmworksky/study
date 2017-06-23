@@ -1,0 +1,19 @@
+{% include 'base.html' %}
+{% block title %}Test Result{% endblock %}
+{% block content %}
+<style>
+.divcss1{text-align:center}
+</style>
+<h1 class = "divcss1">Welcome to Result</h1>
+<!-- <textarea name = 'json_result' cols = "30" rows = "2" value ="result">{{test_result}}</textarea><br>
+ -->
+ <ul>
+ {% for item in data_name.values %}
+ <li>
+ 	{{item}}
+ </li>
+ {% endfor%}
+ 
+<p>this is result : {{test_result}}</p>
+<button class = "divcss1" type = "submit" value = "return"></button>
+{% endblock %}
